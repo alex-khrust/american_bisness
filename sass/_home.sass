@@ -1,0 +1,93 @@
+section.home
+  width: 100%
+  height: auto
+  position: relative
+  background: #f4f6f9
+  display: flex
+  padding: 40px 0 50px 0
+  justify-content: space-between
+
+  .container
+    display: flex
+    flex-flow: row
+    justify-content: space-between
+
+
+.catalog
+  height: auto
+  flex: 0 1 49%
+
+  &-title
+    font: 30px "Montserrat-Bold"
+    color: rgb(58, 59, 64)
+    line-height: 1.2
+    margin-bottom: 25px
+  &__tabs
+    display: flex
+    flex: 100%
+    height: 52px
+    background-color: rgb(232, 238, 247)
+    &--item
+      display: flex
+      flex: 1
+      a
+        width: 100%
+        height: 100%
+        display: flex
+        justify-content: center
+        margin: 0 auto
+        align-items: center
+        font: 17px "Montserrat-Regular"
+        line-height: 1.2
+        color: rgb(59, 84, 232)
+      .active
+        background-color: rgb(59, 84, 232)
+        font: 17px "Montserrat-Regular"
+        color: rgb(255, 255, 255)
+        line-height: 1.2
+  &__list
+    &--item
+      width: 100%
+      height: 43px
+      background: #fff
+      a
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        font: 17px "Montserrat-Regular"
+        color: rgb(29, 30, 38)
+        line-height: 1.2
+        &::before
+          counter-increment: myCounter
+          content: counter(myCounter)
+          display: inline-block
+          text-align: center
+          margin: 0 20px
+          font: 17px "Montserrat-Bold"
+          color: rgb(229, 52, 85)
+          line-height: 1.2
+        &:hover
+          color: rgb(59, 84, 232)
+          text-decoration: underline
+      &:nth-child(even)
+        background: #f5f9ff
+
+
+section.map
+  width: 100%
+  height: auto
+  position: relative
+  background: #3b54e8
+  display: flex
+  padding: 60px 0
+
+  img
+    width: auto
+    max-width: 850px
+    height: auto
+    max-height: 529px
+    display: flex
+    margin: 0 auto
+    align-self: center
+

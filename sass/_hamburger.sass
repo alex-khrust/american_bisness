@@ -1,0 +1,42 @@
+/* Global Styles */
+
+
+/* Hamburger Menu */
+.hamburger-btn
+  width: auto
+  max-width: 78px
+  height: 78px
+  background-color: hsla( 355, 75%, 56%, 1 )
+  position: relative
+  display: flex
+  cursor: pointer
+
+.McButton
+  $bar-w: 28px
+  $bar-h: 3px
+  $bar-color: white
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-left: -($bar-w /2)
+  margin-top: -($bar-w /2)
+  width: $bar-w
+  height: ($bar-w - $bar-h)
+  cursor: pointer
+  b
+    position: absolute
+    left: 0
+    width: $bar-w
+    height: $bar-h
+    background-color: $bar-color
+    &:nth-child(1)
+      top: 0
+    &:nth-child(2)
+      top: 50%
+    &:nth-child(3)
+      top: 100%
+  &.active
+    height: $bar-w
+
+/* McButton */
+
