@@ -1,0 +1,148 @@
+section.feedback
+  padding: 15px 0 130px 0
+  .form-feedback
+    @extend .container
+
+  .container-thirds
+    display: flex
+    flex-flow: row
+    justify-content: space-between
+  .user_email
+    margin: 0 30px 30px 30px
+
+.title
+  font: 30px "Montserrat-Bold"
+  color: rgb(58, 59, 64)
+  margin-bottom: 25px
+  display: flex
+  flex: 100%
+  align-self: flex-start
+
+
+form.form
+  width: 100%
+  display: flex
+  flex-flow: column
+  justify-content: space-between
+
+form.form input.text,
+.textarea
+  height: 55px
+  padding: 20px 25px
+  border: 1px solid #fff
+  color: rgb(58, 59, 64)
+  background: #fff
+  position: relative
+  z-index: 2
+  font: 15px "Montserrat-Regular"
+
+
+form.form input.text
+  width: 100%
+
+.area
+  @extend .container
+  width: 100%
+  margin-bottom: 30px !important
+.agreement
+  display: flex
+  flex: 1
+  align-items: center
+  label
+    display: inline-block
+    cursor: pointer
+    font: 15px "Montserrat-Regular"
+    color: rgb(58, 59, 64)
+    position: relative
+    padding-left: 38px
+    &:before
+      content: ""
+      display: inline-block
+      width: 23px
+      height: 23px
+      margin-right: 10px
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+      border: 1px solid rgb(200, 205, 214)
+      background-color: #fff
+
+.agreement input[type=checkbox]:checked + label:before
+  content: ''
+  position: absolute
+  left: 0
+  width: 23px
+  height: 23px
+  background: url(../img/done.svg) no-repeat center center #fff
+
+#agr
+  visibility: hidden
+  position: absolute
+
+.captcha
+  display: flex
+  justify-content: space-evenly
+  flex: 1
+  margin: 0 30px
+  .keystring
+    max-width: 120px
+
+.submit-btn
+  display: flex
+  flex: 1
+  justify-content: flex-end
+
+
+form.form .textarea
+  height: 150px
+  width: 100%
+
+
+form.form label
+  //float: left
+  //width: 120px
+  //text-align: right
+  //margin-right: 15px
+  //font-weight: bold
+  color: rgb(58, 59, 64)
+  font-size: 15px
+
+
+form.form .btn
+  height: 55px
+  width: 230px
+  padding: 0 10px
+  background: rgb(59, 84, 232)
+  color: #ffffff
+  font: 20px "Montserrat-Regular"
+  border: 1px solid rgb(59, 84, 232)
+  outline: none
+  cursor: pointer
+
+
+/* CSS3 */
+
+div.error_field
+  background: #FEDAFB
+  border: 1px solid #FA74F0
+
+
+div.errors
+  width: 580px
+  margin: 15px auto
+  padding: 10px
+  border: 1px solid #ccc
+  background: #FDFEC2
+
+
+div.errors .error
+  color: red
+  font-weight: bold
+  font-size: 12px
+  margin: 5px
+
+
+
+
+
