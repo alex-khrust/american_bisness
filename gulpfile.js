@@ -19,7 +19,7 @@ gulp.task('sass', function () { // Создаем таск Sass
     sass(), // Преобразуем Sass в CSS посредством gulp-sass
     autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}), // Создаем префиксы
     gulp.dest('css'), // Выгружаем результата в папку src/css
-    browserSync.reload({stream: true})
+    browserSync.reload({stream: true}),
   ).on('error', notify.onError()); // Обновляем CSS на странице при изменении, и в случае ошибки выводим оповещение.
 });
 
@@ -35,7 +35,7 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
 gulp.task('scripts', function () {
   return gulp.src([ // Берем все необходимые библиотеки
     'libs/jquery/dist/jquery.min.js', // Берем jQuery
-    'libs/velocity/velocity.min.js',
+    // 'libs/velocity/velocity.min.js',
     // 'libs/TweenMax/TweenMax.min.js',
     // 'libs/slick/slick.min.js',
     // 'libs/magnific-popup/dist/jquery.magnific-popup.min.js',

@@ -1,42 +1,85 @@
-/* Global Styles */
+$bar-width: 40px
+$bar-spacing: 15px
+$bar-height: 5px
 
+.mob-menu, .header-small
+  .search-bar
+    .bar,
+    .bar:after,
+    .bar:before
+      width: 20px
+      height: 3px
 
-/* Hamburger Menu */
+    .bar:before
+      bottom: 7px
+    .bar:after
+      top: 7px
+    .bar.animate:before
+      bottom: 0
+    .bar.animate:after
+      top: 0
+
 .hamburger-btn
   width: auto
   max-width: 78px
   height: 78px
-  background-color: hsla( 355, 75%, 56%, 1 )
+  //display: flex
+  flex: 2
+
+.hamburger
+  width: 100%
+  height: 100%
   position: relative
+  margin: auto
+  background-color: hsla( 355, 75%, 56%, 1 )
+  cursor: pointer
   display: flex
-  cursor: pointer
+  justify-content: center
+  align-items: center
 
-.McButton
-  $bar-w: 28px
-  $bar-h: 3px
-  $bar-color: white
+
+.bar,
+.bar:after,
+.bar:before
+  width: $bar-width
+  height: $bar-height
+
+
+.bar
+  position: relative
+  //transform: translateY($bar-spacing)
+  background: rgba(255, 255, 255, 1)
+  transition: all 0ms 300ms
+
+  &.animate
+    background: rgba(255, 255, 255, 0)
+
+
+.bar:before
+  content: ""
   position: absolute
-  top: 50%
-  left: 50%
-  margin-left: -($bar-w /2)
-  margin-top: -($bar-w /2)
-  width: $bar-w
-  height: ($bar-w - $bar-h)
-  cursor: pointer
-  b
-    position: absolute
-    left: 0
-    width: $bar-w
-    height: $bar-h
-    background-color: $bar-color
-    &:nth-child(1)
-      top: 0
-    &:nth-child(2)
-      top: 50%
-    &:nth-child(3)
-      top: 100%
-  &.active
-    height: $bar-w
+  left: 0
+  bottom: $bar-spacing
+  background: rgba(255, 255, 255, 1)
+  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)
 
-/* McButton */
 
+.bar:after
+  content: ""
+  position: absolute
+  left: 0
+  top: $bar-spacing
+  background: rgba(255, 255, 255, 1)
+  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)
+
+
+.bar.animate:after
+  top: 0
+  transform: rotate(45deg)
+  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)
+
+
+.bar.animate:before
+  bottom: 0
+  transform: rotate(-45deg)
+  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)

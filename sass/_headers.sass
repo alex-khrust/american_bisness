@@ -23,7 +23,7 @@ header
       span
         color: #e53455
 
-  .nav-search
+  .search-bar
     width: 100%
     max-width: 1170px
     height: 78px
@@ -31,60 +31,58 @@ header
     display: flex
     flex-flow: row nowrap
     flex: 100%
-    .hamburger-btn
+    .hamburger
       flex: 2
-    .search-btn
-      max-width: 78px
-      height: 78px
-      background-color: #3b54e8
-      position: relative
+  .search-btn
+    max-width: 78px
+    height: 78px
+    background-color: #3b54e8
+    position: relative
+    display: flex
+    cursor: pointer
+    flex: 2
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      display: inline-block
+      width: 36px
+      height: 36px
+      background: url("../img/search.png") no-repeat 100% center / contain
+      transform: translate(-50%, -50%)
+      z-index: 1
+  .hamburger-menu__list
+    width: 300px
+    height: auto
+    &--item
+      width: 100%
+      height: 50px
+      background: #ffffff
       display: flex
-      cursor: pointer
-      flex: 2
-      &:after
-        content: ''
-        position: absolute
-        top: 50%
-        left: 50%
-        display: inline-block
-        width: 36px
-        height: 36px
-        background: url("../img/search.png") no-repeat 100% center / contain
-        transform: translate(-50%, -50%)
-        z-index: 1
-  .hamburger-menu
-    position: absolute
-    top: 79px
-    left: 0
-    display: none
-    .hamburger-menu__list
-      width: 300px
-      height: auto
-      .hamburger-menu__list--item
+      align-items: center
+      justify-content: flex-start
+      padding: 25px
+      a
         width: 100%
-        height: 50px
-        background: #ffffff
+        height: auto
+        position: relative
+        font: 17px "Montserrat-Regular"
+        color: rgb(135, 137, 148)
+        line-height: 1.2
         display: flex
-        align-items: center
-        justify-content: flex-start
-        padding: 25px
-        a
-          width: 100%
-          //height: 100%
-          font: 17px "Montserrat-Regular"
-          color: rgb(135, 137, 148)
-          line-height: 1.2
-          display: flex
-          justify-content: space-between
-          &::after
-            position: relative
-            content: ""
-            display: inline-block
-            width: 8px
-            height: 8px
-            border-right: 2px solid rgb(135, 137, 148)
-            border-top: 2px solid rgb(135, 137, 148)
-            transform: rotate(45deg)
+        justify-content: space-between
+        &::after
+          position: absolute
+          right: 0
+          top: 50%
+          content: ""
+          display: inline-block
+          width: 8px
+          height: 8px
+          border-right: 2px solid rgb(135, 137, 148)
+          border-top: 2px solid rgb(135, 137, 148)
+          transform: translateY(-50%) rotate(45deg)
   .menu
     width: 100%
     height: 60px
@@ -119,9 +117,9 @@ header
             background-color: rgb(229, 52, 85)
             position: absolute
             bottom: 0
-            display: inline-block
-
-
+            display: flex
+  .navbar
+    display: none
   form
     display: flex
     flex-flow: row nowrap
@@ -141,9 +139,21 @@ header
         font: 17px "Montserrat-Regular"
         color: rgb(135, 137, 148)
         line-height: 1.2
+.hamburger-menu
+  position: absolute
+  top: -5000px
+  left: 0
+  background: darken(rgb(59, 84, 232), 10%)
+  width: auto
+  height: auto
+  z-index: -1
+  transition: .7s
+  box-shadow: 0 0 10px #000
+  overflow: auto
 
-.hamburger-menu.active
-  display: flex
+.hamburger-menu.down
+  top: 79px
+  z-index: -1
 
 header
   .header-small
@@ -159,7 +169,7 @@ header
       h1
         color: #3a3b40
         font-size: 36.89px
-    .nav-search
+    .search-bar
       height: 45px
       position: relative
       display: flex
@@ -175,9 +185,9 @@ header
         &:after
           width: 22px
           height: 22px
-      .hamburger-menu
+      .hamburger-menu.down
         top: 47px
-        z-index: 1
+        z-index: -1
     form
       input
         padding: 0 20px
@@ -187,7 +197,119 @@ header
 
 
 
+/*mob-menu -----------------------------*/
+.mob-menu
+  width: 100%
+  height: 60px
+  position: sticky
+  top: 0
+  left: 0
+  display: flex
+  z-index: 99999
+  .header-home, .header-small
+    width: 100%
+    height: 60px
+    background: rgb(59, 84, 232)
+    display: flex
+    flex-flow: row
+    justify-content: space-between
+    align-items: center
+    position: relative
+    box-shadow: 0 0 10px #000
+  .logo
+    position: absolute
+    top: initial
+    left: initial
+    padding-left: 10px
+    h1
+      color: #ffffff !important
+      font-size: 4vmax !important
+  .navbar
+    width: auto
+    height: auto
+    display: flex
+    position: absolute
+    right: 0
+    .search-btn
+      width: 78px
+      height: 60px
+    .hamburger-btn
+      width: 78px
+      height: 60px
+    .hamburger
+      background: rgb(59, 84, 232)
+  .menu__list--item a
+    height: auto !important
+  .menu__list--item a:hover:after,
+  .menu__list--item a.active:after
+    display: none
+
+  nav
+    position: absolute
+    background: darken(rgb(59, 84, 232), 10%)
+    width: 100%
+    height: auto
+    left: 0
+    top: -5000%
+    z-index: -1
+    transition: .7s
+    box-shadow: 0 0 10px #000
+    ul
+      flex-flow: column
+      max-width: 100%
+    li
+      list-style: none
+      text-align: center
+      a
+        display: block
+        padding: 16px
+        color: #fff
+        text-decoration: none
+        font-size: 15px
+        &:hover, &.active
+          background: rgb(229, 52, 85)
+
+  .search-bar
+    position: absolute !important
+    background:  darken(rgb(59, 84, 232), 10%)
+    width: 100%
+    height: auto
+    left: 0
+    top: -5000%
+    z-index: -1
+    transition: .7s
+    box-shadow: 0 0 10px #000
+    //padding: 15px
+    line-height: 60px
 
 
+  .down
+    top: 60px
+    //overflow: auto
 
+  .logo h1
+    font-size: 36.89px
+  .search-bar
+    height: 45px
+    display: flex
+    justify-content: flex-end
+    .hamburger-btn
+      flex: 0 0 45px
+      width: 45px
+      height: 45px
 
+    .search-btn
+      max-width: 45px
+      height: 45px
+      &:after
+        width: 22px
+        height: 22px
+    .hamburger-menu.down
+      top: 47px
+      z-index: -1
+  form
+    input
+      padding: 0 5px
+      font-size: 12px
+      &::placeholder
+        font-size: 12px

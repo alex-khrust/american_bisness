@@ -64,14 +64,19 @@ section.content_page-2, .content_page-2--2
       background: #fff
       padding: 10px 20px
       &--item
-        display: flex
+        display: inline-block
         flex: 100%
         background: #fff
-        height: 30px
+        height: auto
+        padding: 5px 0
         a
           font: 15px "Montserrat-Regular"
           color: rgb(29, 30, 38)
           line-height: 1.667
+          word-wrap: break-word
+          word-break: break-word
+          p
+            display: inline-block
           &:hover
             color: rgb(59, 84, 232)
 

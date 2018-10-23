@@ -1,52 +1,50 @@
-jQuery(document).ready(function($) {
+$(document).ready(function ()  {
+// =======================================================================
 // Hamburger -----------------------------------------
-  const HamburgerMenu = $('.hamburger-btn');
-  const McButton = $(".McButton");
-  const McBar1 = McButton.find("b:nth-child(1)");
-  const McBar2 = McButton.find("b:nth-child(2)");
-  const McBar3 = McButton.find("b:nth-child(3)");
+  (function () {
+    $('#search-hamburger').on('click', function() {
+      $('#search-hamburger>.bar').toggleClass('animate');
+      $('.hamburger-menu').toggleClass('down');
+    });
+    $('.hamburger-menu a').on('click', function() {
+      $('#search-hamburger>.bar').toggleClass('animate');
+      $('.hamburger-menu').toggleClass('down');
+    })
+  })();
   
-  HamburgerMenu.click(function () {
-    $(McButton).toggleClass("active");
-    
-    if (McButton.hasClass("active")) {
-      McBar1.velocity({top: "50%"}, {duration: 200, easing: "swing"});
-      McBar3.velocity({top: "50%"}, {duration: 200, easing: "swing"})
-        .velocity({rotateZ: "90deg"}, {duration: 800, delay: 200, easing: [500, 20]});
-      McButton.velocity({rotateZ: "135deg"}, {duration: 800, delay: 200, easing: [500, 20]});
-    } else {
-      McButton.velocity("reverse");
-      McBar3.velocity({rotateZ: "0deg"}, {duration: 800, easing: [500, 20]})
-        .velocity({top: "100%"}, {duration: 200, easing: "swing"});
-      McBar1.velocity("reverse", {delay: 800});
-    }
+  // drop down the menu, and swap the icon to the close icon ----------
+  $('#nav-menu').click(function(){
+    $('#nav-menu>.bar').toggleClass('animate');
+    $('nav').toggleClass('down');
+    $('.search-bar').removeClass('down');
+  });
+  //Make sure the menu icon behaves correctly when the menu is open
+  $('nav li a').click(function(){
+    $('#nav-menu>.bar').removeClass('animate');
+    $('nav').toggleClass('down');
+  });
+//show and hide the search bar, also make sure if the menu is open to hide the menu, and ensure the menu icon state is correct
+  $('#search-btn').click(function(){
+    $('.search-bar').toggleClass('down');
+    $('#nav-menu>.bar').removeClass('animate');
+    $('nav').removeClass('down');
+    $('#search-hamburger>.bar').removeClass('animate');
+    $('.hamburger-menu').removeClass('down');
   });
 //-------------------------------------------------------------------------
-//Hamburger меню ----------------------------------------------------------
-  (function () {
-    var menu;
-    var menuBtn;
-    var menuItems;
-    
-    function toggleActive() {
-      menuBtn.toggleClass('active');
-      menu.toggleClass('active');
-    }
-    
-    $(document).ready(function () {
-      menu = $('.hamburger-menu');
-      menuBtn = $('.hamburger-btn');
-      menuItems = menu.find('a');
-      
-      menuBtn.click(toggleActive);
-      menuItems.click(toggleActive);
-    });
-  }());
+//Добавление и удаление классов по ширене экрана  ----------
+  var windowWidth = $(window).width();
+  if (windowWidth < 1070) $("header").addClass("mob-menu");
+  else $("header").removeClass("mob-menu");
+  
+  $(window).resize(function () {
+    var windowWidth = $(window).width();
+    if (windowWidth < 1070) $("header").addClass("mob-menu");
+    else $("header").removeClass("mob-menu");
+  });
 //----------------------------------------------------------
 
-
-
-
+// ==============================================================
 });
 
 

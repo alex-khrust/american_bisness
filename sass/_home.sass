@@ -9,7 +9,7 @@ section.home
 
   .container
     display: flex
-    flex-flow: row
+    flex-flow: row wrap
     justify-content: space-between
 
 
@@ -48,7 +48,11 @@ section.home
   &__list
     &--item
       width: 100%
-      height: 43px
+      height: auto
+      min-height: 43px
+      display: flex
+      justify-content: center
+      align-items: center
       background: #fff
       a
         width: 100%
@@ -83,7 +87,7 @@ section.map
   padding: 60px 0
 
   img
-    width: auto
+    width: 100%
     max-width: 850px
     height: auto
     max-height: 529px
