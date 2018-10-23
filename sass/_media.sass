@@ -20,14 +20,23 @@
     .wrap-center
       margin: 0
       .data
+        height: auto
         display: flex
-        //flex-flow: row-reverse wrap-reverse
+        flex-flow: row-reverse wrap
+        .left
+          height: 180px
+          margin-right: 0
+        .right
+          height: 180px
     .wrap-right
       max-width: 770px
       margin: 30px auto 0
       align-items: center
       .advertising
         max-width: 370px
+      .resources
+        max-width: 370px
+
 
 
 @media (max-width: 1170px)
@@ -97,3 +106,20 @@
   .area
       width: 100% !important
       padding: 0 !important
+
+
+  body
+    padding-bottom: 105px
+  .footer-nav
+    width: 100%
+    height: 80px !important
+  .footer-nav__list
+    display: flex
+    flex-flow: column wrap !important
+    justify-content: space-between !important
+    align-items: center
+    text-align: center
+    position: relative
+    &--item
+      width: 33.333% !important
+      height: 50% !important

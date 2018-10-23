@@ -2429,10 +2429,21 @@ div.errors .error {
   section.content_page-4 .wrap-center {
     margin: 0; }
     section.content_page-4 .wrap-center .data {
+      height: auto;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -webkit-flex-flow: row-reverse wrap;
+          -ms-flex-flow: row-reverse wrap;
+              flex-flow: row-reverse wrap; }
+      section.content_page-4 .wrap-center .data .left {
+        height: 180px;
+        margin-right: 0; }
+      section.content_page-4 .wrap-center .data .right {
+        height: 180px; }
   section.content_page-4 .wrap-right {
     max-width: 770px;
     margin: 30px auto 0;
@@ -2441,6 +2452,8 @@ div.errors .error {
         -ms-flex-align: center;
             align-items: center; }
     section.content_page-4 .wrap-right .advertising {
+      max-width: 370px; }
+    section.content_page-4 .wrap-right .resources {
       max-width: 370px; } }
 
 @media (max-width: 1170px) {
@@ -2519,4 +2532,32 @@ div.errors .error {
       margin: 30px 0 30px !important; }
   .area {
     width: 100% !important;
-    padding: 0 !important; } }
+    padding: 0 !important; }
+  body {
+    padding-bottom: 105px; }
+  .footer-nav {
+    width: 100%;
+    height: 80px !important; }
+  .footer-nav__list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -webkit-flex-flow: column wrap !important;
+        -ms-flex-flow: column wrap !important;
+            flex-flow: column wrap !important;
+    -webkit-box-pack: justify !important;
+    -webkit-justify-content: space-between !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    position: relative; }
+    .footer-nav__list--item {
+      width: 33.333% !important;
+      height: 50% !important; } }
