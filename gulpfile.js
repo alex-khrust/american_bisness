@@ -17,7 +17,7 @@ gulp.task('sass', function () { // Создаем таск Sass
   return combiner(
     gulp.src('sass/**/*.sass'),// Берем источник
     sass(), // Преобразуем Sass в CSS посредством gulp-sass
-    autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}), // Создаем префиксы
+    autoprefixer(['last 15 versions', '> 1%', 'ie 9'], {cascade: true}), // Создаем префиксы
     gulp.dest('css'), // Выгружаем результата в папку src/css
     browserSync.reload({stream: true}),
   ).on('error', notify.onError()); // Обновляем CSS на странице при изменении, и в случае ошибки выводим оповещение.

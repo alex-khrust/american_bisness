@@ -31,6 +31,7 @@ header
     display: flex
     flex-flow: row nowrap
     flex: 100%
+    z-index: 1
     .hamburger
       flex: 2
   .search-btn
@@ -148,7 +149,7 @@ header
   height: auto
   z-index: -1
   transition: .7s
-  box-shadow: 0 0 10px #000
+  //box-shadow: 0 0 10px #000
   overflow: auto
 
 .hamburger-menu.down
@@ -175,6 +176,7 @@ header
       display: flex
       justify-content: flex-end
       flex: 4.3
+      z-index: 1
       .hamburger-btn
         flex: 0 0 45px
         width: 45px
@@ -188,6 +190,7 @@ header
       .hamburger-menu.down
         top: 47px
         z-index: -1
+        box-shadow: none
     form
       input
         padding: 0 20px
@@ -306,7 +309,9 @@ header
         height: 22px
     .hamburger-menu.down
       top: 47px
-      z-index: -1
+      z-index: -1 !important
+      box-shadow: 0 0 10px #000 !important
+
   form
     input
       padding: 0 5px
