@@ -61,6 +61,15 @@ gulp.task('css-libs', ['sass'], function () {
     .pipe(gulp.dest('css')); // Выгружаем в папку src/css
 });
 
+gulp.task('css-main-nano', ['sass'], function () {
+  return gulp.src([ // Выбираем файл для минификации
+    'css/main.css',
+  ])
+    .pipe(cssnano()) // Сжимаем
+    .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
+    .pipe(gulp.dest('css')); // Выгружаем в папку src/css
+});
+
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function () {
   gulp.watch('sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
   gulp.watch('*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
