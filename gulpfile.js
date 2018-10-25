@@ -35,7 +35,7 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
 gulp.task('scripts', function () {
   return gulp.src([ // Берем все необходимые библиотеки
     'libs/jquery/dist/jquery.min.js', // Берем jQuery
-    // 'libs/velocity/velocity.min.js',
+    'libs/Easy-Customizable-Sliding-Menu-Indicator-Plugin-SlidingMenu/SlidingMenu.js',
     // 'libs/TweenMax/TweenMax.min.js',
     // 'libs/slick/slick.min.js',
     // 'libs/magnific-popup/dist/jquery.magnific-popup.min.js',
@@ -49,6 +49,7 @@ gulp.task('scripts', function () {
 gulp.task('css-libs', ['sass'], function () {
   return gulp.src([ // Выбираем файл для минификации
     'libs/normalize.css/normalize.css',
+    // 'css/main.css',
     // 'libs/fullpage.js/dist/fullpage.min.css',
     // 'libs/magnific-popup/dist/magnific-popup.css',
     // 'libs/slick/slick.css',
@@ -63,6 +64,7 @@ gulp.task('css-libs', ['sass'], function () {
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function () {
   gulp.watch('sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
   gulp.watch('*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
+  gulp.watch('html/**/*.html', browserSync.reload); // Наблюдение за всеми HTML файлами
   gulp.watch('js/**/*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
@@ -85,8 +87,8 @@ gulp.task('img', function () {
 gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function () {
 
   var buildCss = gulp.src([ // Переносим библиотеки в продакшен
-    'main.css',
-    'libs.min.css'
+    'css/main.css',
+    'css/libs.min.css'
   ])
     .pipe(gulp.dest('dist/css'));
 
@@ -98,6 +100,9 @@ gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function () {
 
   var buildHtml = gulp.src('*.html') // Переносим HTML в продакшен
     .pipe(gulp.dest('dist'));
+  
+  var buildHtml = gulp.src('html/**/*.html') // Переносим HTML в продакшен
+    .pipe(gulp.dest('dist/html'));
 
 });
 
